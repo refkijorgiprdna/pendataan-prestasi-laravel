@@ -29,25 +29,23 @@ use App\Http\Controllers\DashboardController;
 
 Route::middleware(['admin', 'auth'])
 ->group(function() {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
-
     Route::resource('prestasi', PrestasiController::class);
     Route::get('/prestasi/cetak/{tglawal}/{tglakhir}', [PrestasiController::class, 'cetak'])->name('prestasi.cetak');
 
     Route::resource('berita', BeritaController::class);
 
     Route::resource('siswa', SiswaController::class);
-
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 });
 
 Route::middleware(['auth'])
 ->group(function() {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
     Route::get('/kelola-prestasi', [PrestasiController::class, 'kelola'])->name('prestasi.kelola');
     Route::post('/kelola-prestasi', [PrestasiController::class, 'store2'])->name('prestasi.store2');
     Route::delete('/kelola-prestasi/{id}', [PrestasiController::class, 'destroy2'])->name('prestasi.destroy2');
     Route::put('/kelola-prestasi/{id}', [PrestasiController::class, 'update2'])->name('prestasi.update2');
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 
     // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     // Route::patch('/profile/update', [ProfileController::class, 'update'])->name('profile.update');

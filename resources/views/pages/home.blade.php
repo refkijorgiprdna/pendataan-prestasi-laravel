@@ -30,7 +30,11 @@
         <h1>Sistem Informasi Pendataan Prestasi SMPN 4 Kota Bengkulu</h1>
         <h2>Teruslah melangkah meski itu pelan karena dengan melangkah akan menjadikan kita semakin dekat dengan tujuan dan prestasi yang diinginkan</h2>
         <div class="d-flex justify-content-center justify-content-lg-start">
-          <a href="#why-us" class="btn-get-started scrollto">Get Started</a>
+            @if (Auth::user())
+            <a href="{{ route('dashboard') }}" class="btn-get-started scrollto">DASHBOARD</a>
+            @else
+            <a href="{{ route('login') }}" class="btn-get-started scrollto">LOGIN</a>
+            @endif
           {{--  <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>  --}}
         </div>
       </div>
@@ -238,7 +242,9 @@
             <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in">
                 <div class="icon-box">
                   <h4>{{ $item->judul }}</h4>
-                  <p>{!!$item->isi!!}</p>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalberita{{ $item->id }}">
+                    Lihat Berita
+                  </button>
                 </div>
               </div>
             @endforeach
@@ -269,6 +275,27 @@
 
       </div>
     </section><!-- End Services Section -->
+
+    @foreach ($berita as $item2)
+    <div class="modal fade" id="modalberita{{ $item2->id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">{{ $item2->judul }}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              {!! $item->isi !!}
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    @endforeach
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">

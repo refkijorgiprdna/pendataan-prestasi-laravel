@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ url('frontend/assets/img/favicon.png') }}" rel="icon">
-  <link href="{{ url('frontend/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <link href="{{ url('logo-pendidikan.png') }}" rel="icon">
+  <link href="{{ url('logo-pendidikan.png') }}" rel="apple-touch-icon">
 
   @include('includes.user.style')
 

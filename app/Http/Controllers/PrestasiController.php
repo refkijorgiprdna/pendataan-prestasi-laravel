@@ -57,7 +57,7 @@ class PrestasiController extends Controller
             'bukti' => $fileNames
         ]);
 
-        return redirect()->route('prestasi.index');
+        return redirect()->route('prestasi.index')->with('success', 'Berhasil Menambah Prestasi');
     }
 
     public function store2(Request $request)
@@ -86,7 +86,7 @@ class PrestasiController extends Controller
             'bukti' => $fileNames
         ]);
 
-        return redirect()->route('prestasi.kelola');
+        return redirect()->route('prestasi.kelola')->with('success', 'Berhasil Menambah Prestasi');
     }
 
     public function show(Request $request, $id)
@@ -148,7 +148,7 @@ class PrestasiController extends Controller
             'bukti' => $fileNames
         ]);
 
-        return redirect()->route('prestasi.index');
+        return redirect()->route('prestasi.index')->with('success', 'Berhasil Mengubah Prestasi');
     }
 
     public function update2(Request $request, $id)
@@ -182,7 +182,7 @@ class PrestasiController extends Controller
             'bukti' => $fileNames
         ]);
 
-        return redirect()->route('prestasi.kelola');
+        return redirect()->route('prestasi.kelola')->with('success', 'Berhasil Mengubah Prestasi');
     }
 
     public function destroy($id)
@@ -191,7 +191,7 @@ class PrestasiController extends Controller
 
         $item->delete();
 
-        return redirect()->route('prestasi.index');
+        return redirect()->route('prestasi.index')->with('success', 'Berhasil Menghapus Prestasi');
     }
 
     public function destroy2($id)
@@ -199,7 +199,7 @@ class PrestasiController extends Controller
         $item = Prestasi::findOrFail($id);
 
         $item->delete();
-        return redirect()->route('prestasi.kelola');
+        return redirect()->route('prestasi.kelola')->with('success', 'Berhasil Menghapus Prestasi');
     }
 
     public function cetak($tglawal, $tglakhir)

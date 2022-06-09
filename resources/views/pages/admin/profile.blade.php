@@ -2,6 +2,14 @@
 
 @section('content')
 <div class="container-fluid" id="container-wrapper">
+    @if(session()->has('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Sukses!</strong> {{ session()->get('success') }}.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
     <div class="card mb-5">
         <div class="card-body">
             <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">

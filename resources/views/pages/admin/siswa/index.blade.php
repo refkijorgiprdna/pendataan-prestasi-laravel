@@ -4,8 +4,17 @@
 <!-- Begin Page Content -->
     <div class="container-fluid">
 
+        @if(session()->has('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Sukses!</strong> {{ session()->get('success') }}.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Manajemen Siswa</h1>
+        <h1 class="h3 mb-3 text-gray-800 font-weight-bold">Manajemen Siswa</h1>
         {{--  <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
             For more information about DataTables, please visit the <a target="_blank"
                 href="https://datatables.net">official DataTables documentation</a>.</p>  --}}

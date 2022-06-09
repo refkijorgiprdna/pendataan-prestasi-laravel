@@ -49,7 +49,7 @@ class BeritaController extends Controller
             'isi' => $request->isi,
         ]);
 
-        return redirect()->route('berita.index');
+        return redirect()->route('berita.index')->with('success', 'Berhasil Menambah Berita');
     }
 
     /**
@@ -99,7 +99,7 @@ class BeritaController extends Controller
             'isi' => $request->isi,
         ]);
 
-        return redirect()->route('berita.index');
+        return redirect()->route('berita.index')->with('success', 'Berhasil Mengubah Berita');
     }
 
     /**
@@ -114,6 +114,6 @@ class BeritaController extends Controller
 
         $item->delete();
 
-        return redirect()->route('berita.index');
+        return redirect()->route('berita.index')->with('success', 'Berhasil Menghapus Berita');
     }
 }
