@@ -12,21 +12,20 @@
           <li><a class="nav-link scrollto" href="#why-us">Prestasi</a></li>
           <li><a class="nav-link scrollto" href="#services">Berita</a></li>
           @if (Auth::user())
+          <li><a class="nav-link scrollto" href="{{ route('dashboard') }}">Dashboard</a></li>
             <li>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <a class="nav-link scrollto" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
+                    <a class="getstarted scrollto" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </a>
                 </form>
                 {{--  <a class="nav-link scrollto" href="{{ route('logout') }}">{{ __('Log Out') }}</a>  --}}
             </li>
           @else
-            <li><a class="nav-link scrollto" href="{{ route('login') }}">Login</a></li>
-            <li><a class="nav-link scrollto" href="{{ route('register') }}">Register</a></li>
+            <li><a class="getstarted scrollto" href="{{ route('login') }}" style="margin-left: 18px">Login</a></li>
+            <li><a class="getstarted scrollto" href="{{ route('register') }}" style="margin-left: 6px">Register</a></li>
           @endif
-
-          <li><a class="getstarted scrollto" href="#why-us">Get Started</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

@@ -59,7 +59,7 @@ class ProfileController extends Controller
         }
         $item->save();
 
-        return redirect()->route('dashboard');
+        return redirect()->route('profile.edit')->with('success', 'Berhasil Mengupdate Profile');
     }
 
     public function edit_user()

@@ -9,7 +9,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="{{ url('logo-pendidikan.png') }}" />
+
+    <title>Dashboard</title>
 
     @include('includes.style')
 
@@ -65,7 +67,7 @@
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
 
-                        <a href="{{ route('logout') }}" class="btn btn-primary"
+                        <a href="{{ route('logout') }}" class="btn btn-danger"
                                 onclick="event.preventDefault();
                                             this.closest('form').submit();">
                             Log Out
@@ -81,4 +83,3 @@
 </body>
 @stack('addon-script')
 </html>
- 
